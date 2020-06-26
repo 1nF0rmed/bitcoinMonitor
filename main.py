@@ -94,6 +94,15 @@ def tutorial():
     B3.pack()
     tut.mainloop()
 
+def loadChart(action):
+    global chartLoad
+
+    if action == "start":
+        chartLoad = True
+
+    if action == "stop":
+        chartLoad = False
+
 
 
 #Creates live graph
