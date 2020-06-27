@@ -103,6 +103,124 @@ def loadChart(action):
     if action == "stop":
         chartLoad = False
 
+def addMiddleIndicator(what):
+    global middleIndicators
+    global counter
+    if dataPace == "tick":
+        popupmsg("Indicators in Tick Data not available, choose 1 minute tf if you want short term.")
+
+    if what != "none":
+        if middleIndicators == "none":
+
+            if what == "sma":
+                midIQ = tk.Tk()
+                midIQ.wm_title("Periods?")
+                label = ttk.Label(midIQ,
+                                  text="Choose how many periods you want each SMA calculation to consider.\nThese periods are contingent on your current time settings on the chart.\n1 period = 1 OHLC candlestick.",
+                                  font=NORM_FONT)
+                label.pack(side="top", fill="x", pady=10)
+                e = ttk.Entry(midIQ)
+                e.insert(0, 10)
+                e.pack()
+                e.focus_set()
+
+                def callback():
+                    middleIndicators = []
+                    periods = (e.get())
+                    group = []
+                    group.append("sma")
+                    group.append(int(periods))
+                    middleIndicators.append(group)
+                    counter = 9000
+                    print("mid indicator", middleIndicators)
+                    midIQ.destroy()
+
+                b = ttk.Button(midIQ, text="Submit", width=10, command=callback)
+                b.pack()
+                tk.mainloop()
+
+            if what == "ema":
+                midIQ = tk.Tk()
+                midIQ.wm_title("Periods?")
+                label = ttk.Label(midIQ,
+                                  text="Choose how many periods you want each EMA calculation to consider.\nThese periods are contingent on your current time settings on the chart.\n1 period = 1 OHLC candlestick.",
+                                  font=NORM_FONT)
+                label.pack(side="top", fill="x", pady=10)
+                e = ttk.Entry(midIQ)
+                e.insert(0, 10)
+                e.pack()
+                e.focus_set()
+
+                def callback():
+                    middleIndicators = []
+                    periods = (e.get())
+                    group = []
+                    group.append("ema")
+                    group.append(int(periods))
+                    middleIndicators.append(group)
+                    counter = 9000
+                    print("mid indicator", middleIndicators)
+                    midIQ.destroy()
+
+                b = ttk.Button(midIQ, text="Submit", width=10, command=callback)
+                b.pack()
+                tk.mainloop()
+
+
+        else:
+            if what == "sma":
+                midIQ = tk.Tk()
+                midIQ.wm_title("Periods?")
+                label = ttk.Label(midIQ,
+                                  text="Choose how many periods you want each SMA calculation to consider.\nThese periods are contingent on your current time settings on the chart.\n1 period = 1 OHLC candlestick.",
+                                  font=NORM_FONT)
+                label.pack(side="top", fill="x", pady=10)
+                e = ttk.Entry(midIQ)
+                e.insert(0, 10)
+                e.pack()
+                e.focus_set()
+
+                def callback():
+                    periods = (e.get())
+                    group = []
+                    group.append("sma")
+                    group.append(int(periods))
+                    middleIndicators.append(group)
+                    counter = 9000
+                    print("mid indicator", middleIndicators)
+                    midIQ.destroy()
+
+                b = ttk.Button(midIQ, text="Submit", width=10, command=callback)
+                b.pack()
+                tk.mainloop()
+
+            if what == "ema":
+                midIQ = tk.Tk()
+                midIQ.wm_title("Periods?")
+                label = ttk.Label(midIQ,
+                                  text="Choose how many periods you want each EMA calculation to consider.\nThese periods are contingent on your current time settings on the chart.\n1 period = 1 OHLC candlestick.",
+                                  font=NORM_FONT)
+                label.pack(side="top", fill="x", pady=10)
+                e = ttk.Entry(midIQ)
+                e.insert(0, 10)
+                e.pack()
+                e.focus_set()
+
+                def callback():
+                    periods = (e.get())
+                    group = []
+                    group.append("ema")
+                    group.append(int(periods))
+                    middleIndicators.append(group)
+                    counter = 9000
+                    print("mid indicator", middleIndicators)
+                    midIQ.destroy()
+
+                b = ttk.Button(midIQ, text="Submit", width=10, command=callback)
+                b.pack()
+                tk.mainloop()
+    else:
+        middleIndicators = "none"
 
 
 #Creates live graph
