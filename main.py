@@ -223,6 +223,52 @@ def addMiddleIndicator(what):
         middleIndicators = "none"
 
 
+def addTopIndicator(what):
+    global topIndicator
+    global counter
+    global dataPace
+
+    if dataPace == "tick":
+        popupmsg("Indicators in tick data not available")
+
+    elif what == "none":
+        topIndicator = what
+        counter = 9000
+
+    elif what == "rsi":
+        rsiQuestion = tk.Tk()
+        rsiQuestion.wm_title("Periods?")
+        label = ttk.Label(rsiQuestion, text = "Choose how many periods you want each RSI calculation to consider.")
+        label.pack(side = "top", fill = "x", pady = 10)
+
+        e = ttk.Entry(rsiQuestion)
+        e.insert(0, 14)
+        e.pack()
+        e.focus_set()
+
+        def callBack():
+            global topIndicator
+            global counter
+
+            periods = (e.get())
+            group = []
+            group.append("rsi")
+            group.append(periods)
+
+            topIndicator = group
+            counter = 9000
+            print("Set top Indicator to", group)
+            rsiQuestion.destroy()
+
+        b = ttk.Button(rsiQuestion, text = "Submit", width = 10, command = callBack)
+        b.pack()
+        tk.mainloop()
+
+    elif what == "macd":
+        topIndicator = "macd"
+        counter = 9000
+
+
 #Creates live graph
 def animate(i):
     global refreshRate
