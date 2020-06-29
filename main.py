@@ -268,9 +268,8 @@ def addTopIndicator(what):
         topIndicator = "macd"
         counter = 9000
 
-
-def addTopIndicator(what):
-    global topIndicator
+def addBottomIndicator(what):
+    global bottomIndicator
     global counter
     global dataPace
 
@@ -278,7 +277,7 @@ def addTopIndicator(what):
         popupmsg("Indicators in tick data not available")
 
     elif what == "none":
-        topIndicator = what
+        bottomIndicator = what
         counter = 9000
 
     elif what == "rsi":
@@ -293,7 +292,7 @@ def addTopIndicator(what):
         e.focus_set()
 
         def callBack():
-            global topIndicator
+            global bottomIndicator
             global counter
 
             periods = (e.get())
@@ -301,9 +300,9 @@ def addTopIndicator(what):
             group.append("rsi")
             group.append(periods)
 
-            topIndicator = group
+            bottomIndicator = group
             counter = 9000
-            print("Set top Indicator to", group)
+            print("Set bottom Indicator to", group)
             rsiQuestion.destroy()
 
         b = ttk.Button(rsiQuestion, text = "Submit", width = 10, command = callBack)
@@ -311,8 +310,9 @@ def addTopIndicator(what):
         tk.mainloop()
 
     elif what == "macd":
-        topIndicator = "macd"
+        bottomIndicator = "macd"
         counter = 9000
+
 
 
 #Creates live graph
