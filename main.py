@@ -313,6 +313,16 @@ def addBottomIndicator(what):
         bottomIndicator = "macd"
         counter = 9000
 
+def changeTimeFrame(tf):
+    global dataPace
+    global counter
+
+    if tf == "7d" and resampleSize == "1Min":
+        popupmsg("Too Much Data Chose, choose a smaller time frame or higher OHLC interval.")
+    else:
+        dataPace = tf
+        counter = 9000
+
 
 
 #Creates live graph
