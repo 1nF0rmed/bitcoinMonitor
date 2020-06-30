@@ -323,7 +323,21 @@ def changeTimeFrame(tf):
         dataPace = tf
         counter = 9000
 
+def changeSampleSize(size, width):
+    global resampleSize
+    global counter
+    global candleWidth
 
+    if dataPace == "7d" and resampleSize == "1Min":
+        popupmsg("Too Much Data Chose, choose a smaller time frame or higher OHLC interval.")
+
+    elif dataPace == "tick":
+        popupmsg("You're currently viewing tick data, not Open High low close")
+
+    else:
+        resampleSize = resampleSize
+        counter = 9000
+        candleWidth = width
 
 #Creates live graph
 def animate(i):
