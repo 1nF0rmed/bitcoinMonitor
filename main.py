@@ -339,6 +339,28 @@ def changeSampleSize(size, width):
         counter = 9000
         candleWidth = width
 
+def changeExchange(toWhat, pn):
+    global exchange
+    global counter
+    global programName
+
+    exchange = toWhat
+    programName = pn
+    counter = 9000
+
+#Creates a pop up message with given text
+def popupmsg(msg):
+    popup = tk.Tk()
+
+    popup.wm_title("!")
+    label = ttk.Label(popup, text = msg, font = NORM_FONT)
+    label.pack(side = 'top', fill = "x", pady = 10)
+
+    #Closes the popup window
+    B1 = ttk.Button(popup, text = "Okay", command = popup.destroy)
+    B1.pack()
+    popup.mainloop()
+
 #Creates live graph
 def animate(i):
     global refreshRate
