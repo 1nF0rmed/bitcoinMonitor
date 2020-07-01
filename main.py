@@ -1,3 +1,5 @@
+#Ariel Chouminov
+
 import matplotlib
 matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
@@ -51,6 +53,7 @@ darkColour = "#183A54"
 lightColour = "#00A3E0"
 
 chartLoad = True
+
 
 def tutorial():
     def leave(what):
@@ -222,7 +225,6 @@ def addMiddleIndicator(what):
     else:
         middleIndicators = "none"
 
-
 def addTopIndicator(what):
     global topIndicator
     global counter
@@ -338,6 +340,7 @@ def changeSampleSize(size, width):
         resampleSize = resampleSize
         counter = 9000
         candleWidth = width
+
 
 def changeExchange(toWhat, pn):
     global exchange
