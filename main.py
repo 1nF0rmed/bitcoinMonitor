@@ -1,6 +1,7 @@
 import matplotlib
 matplotlib.use("TkAgg")
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+#from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk as NavigationToolbar2TkAgg
 import matplotlib.animation as animation
 from matplotlib import style
 from matplotlib import pyplot as plt
@@ -8,9 +9,9 @@ import matplotlib.dates as mdates
 import matplotlib.ticker as mticker
 
 #Plotting using candlestick graphs
-from matplotlib.finance import candlestick_ohlc
+from mpl_finance import candlestick_ohlc
 
-import urllib
+import urllib.request
 import json
 import pandas as pd
 import numpy as np
@@ -32,7 +33,7 @@ style.use("ggplot")
 f = plt.figure()
 
 #Default values
-exchange = "BTC-e"
+exchange = "Bitfinex"
 counter = 9000
 programName = "btce"
 resampleSize = "15Min"
@@ -826,7 +827,7 @@ class Graph_Page(tk.Frame):
         label.pack(pady=10, padx=5)
 
         canvas = FigureCanvasTkAgg(f, self)
-        canvas.show()
+        canvas.draw()
         canvas.get_tk_widget().pack(side = tk.TOP, fill = tk.BOTH, expand = True)
 
         toolbar = NavigationToolbar2TkAgg(canvas, self)
