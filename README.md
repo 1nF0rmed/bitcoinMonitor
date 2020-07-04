@@ -8,8 +8,22 @@ A simple GUI tracker for bitcoin prices that collects tick data from the followi
 - Huobi
 
 ## Setup
+This is build on PYTHON 3.
+
+1. Install the project dependencies:
+```bash
+$ pip install -r requirements.txt
+```
+2. Install mpl_finance as its not available on pip anymore
+```bash
+$ pip install https://github.com/matplotlib/mpl_finance/archive/master.zip
+```
+3. Assuming you are on a Linux distribution, you should already have Tkinter installed in Python 3
 
 ## Run
+```bash
+$ python main.py
+```
 
 ## Output
 
